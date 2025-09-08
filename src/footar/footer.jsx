@@ -12,7 +12,7 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col gap-8">
+                    <div className="flex flex-col gap-8 p-4">
                         <label className="input validator w-full">
                             <svg
                                 className="h-[1em] opacity-50"
