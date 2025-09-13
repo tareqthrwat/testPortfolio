@@ -84,28 +84,61 @@ export default function Footer() {
                         <div>
                             <h1 className="text-3xl">Tarek Thrwat</h1>
                         </div>
-                        <div className=" flex gap-3 mt-0.5 justify-end">
-                            <button className='btn btn-ghost'>
-                                <a href="https://github.com/tareqthrwat">
-                                    <IoLogoGithub className="text-4xl text-amber-50 hover:text-blue-600" />
-                                </a>
-                            </button>
-                            <button className='btn btn-ghost'>
-                                <a href="https://www.linkedin.com/in/tarek-thrwat-328aa8325/">
-                                    <FaLinkedin className="text-4xl text-amber-50 hover:text-blue-600" />
-                                </a>
+                        <div className=" flex   justify-end">
+                            <div className="grid grid-cols-4  gap-6 max-w-md mx-auto">
+                                <button
+                                    className="p-5 rounded-full backdrop-blur-lg border border-white/10 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-white/20 hover:scale-110 hover:rotate-3 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-white/30 hover:bg-gradient-to-tr hover:from-white/10 hover:to-black/40 group relative overflow-hidden"
+                                >
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                                    ></div>
+                                    <div className="relative z-10 flex items-center justify-center">
+                                        <a href="https://github.com/tareqthrwat">
+                                            <IoLogoGithub className="text-4xl text-amber-50 hover:text-blue-600" />
+                                        </a>
+                                    </div>
+                                </button>
 
-                            </button>
-                            <button className='btn btn-ghost'>
-                                <a href="https://www.instagram.com/tarek_thrwat/">
-                                    <FaInstagram className="text-4xl text-amber-50 hover:text-pink-700" />
-                                </a>
-                            </button>
-                            <button className='btn btn-ghost'>
-                                <a href="https://www.facebook.com/tarek.tato.5439?locale=ar_AR">
-                                    <FaFacebookSquare className="text-4xl text-amber-50 hover:text-blue-600" />
-                                </a>
-                            </button>
+                                <button
+                                    className="p-5 rounded-full backdrop-blur-lg border border-green-500/20 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-green-500/30 hover:scale-110 hover:rotate-2 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-green-500/50 hover:bg-gradient-to-tr hover:from-green-500/10 hover:to-black/40 group relative overflow-hidden"
+                                >
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-green-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                                    ></div>
+                                    <div className="relative z-10 flex items-center justify-center">
+                                        <a href="https://www.linkedin.com/in/tarek-thrwat-328aa8325/">
+                                            <FaLinkedin className="text-4xl text-amber-50 hover:text-blue-600" />
+                                        </a>
+                                    </div>
+                                </button>
+
+                                <button
+                                    className="p-5 rounded-full backdrop-blur-lg border border-indigo-500/20 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-indigo-500/30 hover:scale-110 hover:-rotate-2 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-indigo-500/50 hover:bg-gradient-to-tr hover:from-indigo-500/10 hover:to-black/40 group relative overflow-hidden"
+                                >
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                                    ></div>
+                                    <div className="relative z-10 flex items-center justify-center">
+                                       
+                                         <a href="https://www.facebook.com/tarek.tato.5439?locale=ar_AR">
+                                            <FaFacebookSquare className="text-4xl text-amber-50 hover:text-blue-600" />
+                                        </a>
+                                    </div>
+                                </button>
+
+                                <button
+                                    className="p-5 rounded-full backdrop-blur-lg border border-red-500/20 bg-gradient-to-tr from-black/60 to-black/40 shadow-lg hover:shadow-2xl hover:shadow-red-500/30 hover:scale-110 hover:rotate-2 active:scale-95 active:rotate-0 transition-all duration-300 ease-out cursor-pointer hover:border-red-500/50 hover:bg-gradient-to-tr hover:from-red-500/10 hover:to-black/40 group relative overflow-hidden"
+                                >
+                                    <div
+                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-red-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
+                                    ></div>
+                                    <div className="relative z-10 flex items-center justify-center">
+                                        <a href="https://www.instagram.com/tarek_thrwat/">
+                                            <FaInstagram className="text-4xl text-amber-50 hover:text-pink-700" />
+                                        </a>
+                                    </div>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
