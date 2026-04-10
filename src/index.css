@@ -1,2 +1,149 @@
-@import "tailwindcss";
-@plugin "daisyui";
+﻿@import "tailwindcss";
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-cyan: #00f5ff;
+  --color-purple: #7c3aed;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #0a0a0a;
+  color: white;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  cursor: none;
+}
+
+@media (max-width: 767px) {
+  body {
+    cursor: auto;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.glass-panel {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+    0 24px 80px rgba(0, 0, 0, 0.35),
+    0 0 40px rgba(0, 245, 255, 0.08);
+  backdrop-filter: blur(24px);
+}
+
+.neon-button {
+  background: linear-gradient(135deg, var(--color-cyan), #88fbff 48%, var(--color-purple));
+  box-shadow:
+    0 0 18px rgba(0, 245, 255, 0.28),
+    0 0 40px rgba(124, 58, 237, 0.22);
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease;
+}
+
+.neon-button:hover {
+  box-shadow:
+    0 0 24px rgba(0, 245, 255, 0.4),
+    0 0 52px rgba(124, 58, 237, 0.3);
+  filter: brightness(1.04);
+}
+
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 88%);
+}
+
+.glow-cursor {
+  position: absolute;
+  height: 36px;
+  width: 36px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.32), rgba(124, 58, 237, 0.16), transparent 72%);
+  box-shadow:
+    0 0 24px rgba(0, 245, 255, 0.35),
+    0 0 46px rgba(124, 58, 237, 0.22);
+  transition: transform 70ms linear;
+}
+
+.portrait-frame {
+  background:
+    linear-gradient(145deg, rgba(0, 245, 255, 0.3), rgba(124, 58, 237, 0.16)),
+    rgba(255, 255, 255, 0.04);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 38px rgba(0, 245, 255, 0.24),
+    0 0 80px rgba(124, 58, 237, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.portrait-halo {
+  background: radial-gradient(circle, rgba(0, 245, 255, 0.2), rgba(124, 58, 237, 0.1), transparent 68%);
+  filter: blur(22px);
+}
+
+.portrait-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 19rem;
+  width: 19rem;
+  margin-left: -9.5rem;
+  margin-top: -9.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(0, 245, 255, 0.08) inset,
+    0 0 24px rgba(0, 245, 255, 0.08);
+}
+
+.portrait-orbit::before,
+.portrait-orbit::after {
+  content: "";
+  position: absolute;
+  border-radius: 999px;
+}
+
+.portrait-orbit::before {
+  top: -0.35rem;
+  left: 50%;
+  height: 0.7rem;
+  width: 0.7rem;
+  margin-left: -0.35rem;
+  background: var(--color-cyan);
+  box-shadow: 0 0 18px rgba(0, 245, 255, 0.9);
+}
+
+.portrait-orbit::after {
+  right: 1.8rem;
+  bottom: 1.6rem;
+  height: 0.55rem;
+  width: 0.55rem;
+  background: var(--color-purple);
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.95);
+}
