@@ -1,13 +1,70 @@
-﻿@import "tailwindcss";
+@import "tailwindcss";
 
 @theme {
-  --color-background: #0a0a0a;
-  --color-cyan: #00f5ff;
-  --color-purple: #7c3aed;
+  --color-background: #080D1B;
+
+  /* Aurora Midnight Public Theme Tokens */
+  --color-aurora-bg: #080D1B;
+  --color-aurora-surface: #151D33;
+  --color-aurora-primary: #6C8CFF;
+  --color-aurora-accent: #A78BFA;
+  --color-aurora-text: #F4F6FF;
+
+  /* Phase 2 Admin Design System Palette (Preserved) */
+  --color-main-bg: #0B1120;
+  --color-secondary-bg: #111827;
+  --color-card-bg: #1E293B;
+  --color-primary: #38BDF8;
+  --color-accent: #22D3EE;
+  --color-main-text: #F8FAFC;
+  --color-secondary-text: #94A3B8;
+  --color-border: #334155;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
 }
 
 :root {
   color-scheme: dark;
+  --color-main-bg: #0B1120;
+  --color-secondary-bg: #111827;
+  --color-card-bg: #1E293B;
+  --color-primary: #38BDF8;
+  --color-accent: #22D3EE;
+  --color-main-text: #F8FAFC;
+  --color-secondary-text: #94A3B8;
+  --color-border: #334155;
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+}
+
+/* Scoped Aurora Midnight Theme Tokens for Public Portfolio Only */
+.public-portfolio,
+.aurora-tooltip {
+  --aurora-bg: #080D1B;
+  --aurora-bg-elevated: #0E1528;
+  --aurora-surface: #151D33;
+  --aurora-surface-hover: #1C2744;
+  --aurora-primary: #6C8CFF;
+  --aurora-primary-soft: #9BB0FF;
+  --aurora-accent: #A78BFA;
+  --aurora-accent-soft: #C4B5FD;
+  --aurora-text: #F4F6FF;
+  --aurora-text-secondary: #B8C2E0;
+  --aurora-text-muted: #8E9BBF;
+  --aurora-border: rgba(108, 140, 255, 0.2);
+  --aurora-border-subtle: rgba(244, 246, 255, 0.1);
+  --aurora-border-hover: rgba(108, 140, 255, 0.45);
+  --aurora-border-accent: rgba(167, 139, 250, 0.35);
+  --aurora-focus: #6C8CFF;
+
+  /* Scoped token overrides within public portfolio */
+  --color-background: #080D1B;
+  --color-surface: #151D33;
+  --color-primary: #6C8CFF;
+  --color-accent: #A78BFA;
 }
 
 html {
@@ -17,15 +74,80 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #0a0a0a;
-  color: white;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  background: #0B1120;
+  color: #F8FAFC;
+  font-family: 'Inter', "Space Grotesk", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Custom cursor active only on public portfolio view with class */
+body.custom-cursor-active {
   cursor: none;
 }
 
+body.custom-cursor-active a,
+body.custom-cursor-active button {
+  cursor: none;
+}
+
+/* Accessibility: always ensure interactive elements have native cursors */
+input, textarea, select, option, button, [role="button"] {
+  cursor: auto;
+}
+
+input[type="text"], input[type="email"], input[type="url"], input[type="search"], textarea {
+  cursor: text !important;
+}
+
+button, [role="button"], a {
+  cursor: pointer;
+}
+
+/* Scoped admin styles ensuring crisp SaaS layout and normal cursor interaction */
+.admin-mode, .admin-mode * {
+  cursor: auto !important;
+}
+.admin-mode button, .admin-mode a, .admin-mode [role="button"], .admin-mode select, .admin-mode input[type="checkbox"], .admin-mode input[type="radio"] {
+  cursor: pointer !important;
+}
+.admin-mode input[type="text"], .admin-mode input[type="email"], .admin-mode input[type="url"], .admin-mode input[type="search"], .admin-mode textarea {
+  cursor: text !important;
+}
+
+/* Custom smooth scrollbars for SaaS feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1120;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* Accessibility: WCAG Focus Visible indicators */
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Accessibility: WCAG prefers-reduced-motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 @media (max-width: 767px) {
-  body {
-    cursor: auto;
+  body, body.custom-cursor-active {
+    cursor: auto !important;
   }
 }
 
@@ -43,20 +165,20 @@ a {
 }
 
 .glass-panel {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--aurora-border, rgba(108, 140, 255, 0.2));
+  background: linear-gradient(180deg, rgba(21, 29, 51, 0.86), rgba(14, 21, 40, 0.92));
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-    0 24px 80px rgba(0, 0, 0, 0.35),
-    0 0 40px rgba(0, 245, 255, 0.08);
+    0 0 0 1px rgba(244, 246, 255, 0.04) inset,
+    0 24px 80px rgba(4, 7, 16, 0.55),
+    0 0 40px rgba(108, 140, 255, 0.1);
   backdrop-filter: blur(24px);
 }
 
 .neon-button {
-  background: linear-gradient(135deg, var(--color-cyan), #88fbff 48%, var(--color-purple));
+  background: linear-gradient(135deg, var(--aurora-primary, #6C8CFF), #8CA4FF 48%, var(--aurora-accent, #A78BFA));
   box-shadow:
-    0 0 18px rgba(0, 245, 255, 0.28),
-    0 0 40px rgba(124, 58, 237, 0.22);
+    0 0 18px rgba(108, 140, 255, 0.32),
+    0 0 40px rgba(167, 139, 250, 0.24);
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
@@ -65,17 +187,17 @@ a {
 
 .neon-button:hover {
   box-shadow:
-    0 0 24px rgba(0, 245, 255, 0.4),
-    0 0 52px rgba(124, 58, 237, 0.3);
-  filter: brightness(1.04);
+    0 0 24px rgba(108, 140, 255, 0.48),
+    0 0 52px rgba(167, 139, 250, 0.35);
+  filter: brightness(1.06);
 }
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    linear-gradient(rgba(108, 140, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(108, 140, 255, 0.06) 1px, transparent 1px);
   background-size: 72px 72px;
-  mask-image: linear-gradient(180deg, rgba(255, 255, 255, 0.45), transparent 88%);
+  mask-image: linear-gradient(180deg, rgba(244, 246, 255, 0.45), transparent 88%);
 }
 
 .glow-cursor {
@@ -83,27 +205,27 @@ a {
   height: 36px;
   width: 36px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.32), rgba(124, 58, 237, 0.16), transparent 72%);
+  border: 1px solid rgba(167, 139, 250, 0.35);
+  background: radial-gradient(circle, rgba(108, 140, 255, 0.35), rgba(167, 139, 250, 0.2), transparent 72%);
   box-shadow:
-    0 0 24px rgba(0, 245, 255, 0.35),
-    0 0 46px rgba(124, 58, 237, 0.22);
+    0 0 24px rgba(108, 140, 255, 0.4),
+    0 0 46px rgba(167, 139, 250, 0.26);
   transition: transform 70ms linear;
 }
 
 .portrait-frame {
   background:
-    linear-gradient(145deg, rgba(0, 245, 255, 0.3), rgba(124, 58, 237, 0.16)),
-    rgba(255, 255, 255, 0.04);
+    linear-gradient(145deg, rgba(108, 140, 255, 0.32), rgba(167, 139, 250, 0.2)),
+    rgba(21, 29, 51, 0.6);
   box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
-    0 0 38px rgba(0, 245, 255, 0.24),
-    0 0 80px rgba(124, 58, 237, 0.18);
+    0 0 0 1px rgba(244, 246, 255, 0.08) inset,
+    0 0 38px rgba(108, 140, 255, 0.28),
+    0 0 80px rgba(167, 139, 250, 0.2);
   backdrop-filter: blur(18px);
 }
 
 .portrait-halo {
-  background: radial-gradient(circle, rgba(0, 245, 255, 0.2), rgba(124, 58, 237, 0.1), transparent 68%);
+  background: radial-gradient(circle, rgba(108, 140, 255, 0.24), rgba(167, 139, 250, 0.14), transparent 68%);
   filter: blur(22px);
 }
 
@@ -116,10 +238,10 @@ a {
   margin-left: -9.5rem;
   margin-top: -9.5rem;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(108, 140, 255, 0.16);
   box-shadow:
-    0 0 0 1px rgba(0, 245, 255, 0.08) inset,
-    0 0 24px rgba(0, 245, 255, 0.08);
+    0 0 0 1px rgba(108, 140, 255, 0.1) inset,
+    0 0 24px rgba(108, 140, 255, 0.1);
 }
 
 .portrait-orbit::before,
@@ -135,8 +257,8 @@ a {
   height: 0.7rem;
   width: 0.7rem;
   margin-left: -0.35rem;
-  background: var(--color-cyan);
-  box-shadow: 0 0 18px rgba(0, 245, 255, 0.9);
+  background: var(--aurora-primary, #6C8CFF);
+  box-shadow: 0 0 18px rgba(108, 140, 255, 0.9);
 }
 
 .portrait-orbit::after {
@@ -144,6 +266,65 @@ a {
   bottom: 1.6rem;
   height: 0.55rem;
   width: 0.55rem;
-  background: var(--color-purple);
-  box-shadow: 0 0 16px rgba(124, 58, 237, 0.95);
+  background: var(--aurora-accent, #A78BFA);
+  box-shadow: 0 0 16px rgba(167, 139, 250, 0.95);
+}
+
+/* Aurora Midnight Visual Design Utilities */
+.cyber-gradient-text {
+  background: linear-gradient(135deg, var(--aurora-text, #F4F6FF) 8%, var(--aurora-primary, #6C8CFF) 52%, var(--aurora-accent, #A78BFA) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cyber-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(21, 29, 51, 0.92) 0%, rgba(14, 21, 40, 0.96) 100%);
+  border: 1px solid var(--aurora-border, rgba(108, 140, 255, 0.2));
+  box-shadow: 0 12px 40px -10px rgba(4, 7, 16, 0.65), 0 0 0 1px rgba(244, 246, 255, 0.04) inset;
+  backdrop-filter: blur(20px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: var(--aurora-border-hover, rgba(108, 140, 255, 0.45));
+  box-shadow: 0 16px 50px -10px rgba(108, 140, 255, 0.2), 0 0 0 1px rgba(167, 139, 250, 0.22) inset;
+}
+
+.hud-corner {
+  position: relative;
+}
+.hud-corner::before,
+.hud-corner::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--aurora-primary, #6C8CFF);
+  opacity: 0.65;
+  pointer-events: none;
+  transition: opacity 0.3s ease, border-color 0.3s ease;
+}
+.hud-corner::before {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid;
+  border-left: 1.5px solid;
+}
+.hud-corner::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid;
+  border-right: 1.5px solid;
+}
+.hud-corner:hover::before,
+.hud-corner:hover::after {
+  border-color: var(--aurora-accent, #A78BFA);
+  opacity: 1;
+}
+
+.glow-line {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(108, 140, 255, 0.55) 35%, rgba(167, 139, 250, 0.55) 65%, transparent 100%);
 }
